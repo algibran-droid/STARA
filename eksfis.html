@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-image: url(bg2.png);
+        }
+        @keyframes autoRun {
+            from {
+                transform: perspective(1000px) rotateX(-16deg) rotateY(0deg);
+            }
+            to {
+                transform: perspective(1000px) rotateX(-16deg) rotateY(360deg);
+            }
+        }
+        /* Kelas untuk menghentikan animasi rotasi */
+        .paused {
+            animation-play-state: paused;
+        }
+
+        body::before {
+            position: absolute;
+            width: min(1400px, 90vw);
+            top: 10%;
+            left: 50%;
+            height: 90%;
+            transform: translateX(-50%);
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-position: top center;
+            pointer-events: none;
+        }
+        .banner {
+            position: relative;
+            overflow: hidden;
+        }
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .item {
+            flex: 1 0 auto;
+            width: 100%;
+        }
+        .item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+    </style>
+    <link rel="stylesheet" href="eksfis.css">
+</head>
+<body>
+    
+    <div class="banner">
+        <div class="slider" style="--quantity: 10">
+            <div class="item" style="--position: 1">
+                <a href="Mekanika.html">
+                <img src="mekanika.jpg" alt="Mekanika Klasik">
+                <h2 class="overlay-text">Mekanika Klasik</h2>
+                </a>
+            </div>
+            <div class="item" style="--position: 2">
+                <a href="Listrik Magnet.html">
+                <img src="elektro.jpg" alt="Listrik Magnet">
+                <h2 class="overlay-text">Listrik Magnet</h2>
+                </a>
+            </div>
+            <div class="item" style="--position: 3">
+                <a href="termo.html">
+                <img src="Termo.jfif" alt="Termodinamika">
+                <h2 class="overlay-text">Termodinamika</h2>
+            </a>
+            </div>
+            <div class="item" style="--position: 4">
+                <a href="Fisika Kuantum.html">
+                <img src="kuantum.jfif" alt="Fisika Kuantum">
+                <h2 class="overlay-text">Fisika Kuantum</h2>
+                </a>
+            </div>
+            <div class="item" style="--position: 5">
+                <a href="Teori Relativitas.html">
+                <img src="relativitas.jfif" alt="Teori Relativitas">
+                <h2 class="overlay-text">Teori Relativitas</h2>
+                </a>
+            </div>
+            <div class="item" style="--position: 6">
+                <a href="Fisika Zat Padat.html">
+                <img src="fzp.jpg" alt="Fisika Zat Padat">
+                <h2 class="overlay-text">Fisika Zat Padat</h2>
+                </a>
+            </div>
+            <div class="item" style="--position: 7">
+                <a href="Fisika Plasma.html">
+                <img src="fp.jfif" alt="Fisika Plasma">
+                <h2 class="overlay-text">Fisika Plasma</h2>
+                </a>
+            </div>
+            <div class="item" style="--position: 8">
+                <a href="Fisika Modern.html">
+                <img src="par.jpg" alt="Fisika Modern">
+                <h2 class="overlay-text">Fisika Modern</h2>
+                </a>
+            </div>
+            <div class="item" style="--position: 9">
+                <a href="Astronofisika.html">
+                <img src="af.jpg" alt="Astronofisika">
+                <h2 class="overlay-text">Astronofisika</h2>
+                </a>
+            </div>
+            <div class="item" style="--position: 10">
+                <a href="Fisika Nuklir.html">
+                <img src="fn.jpg" alt="Fisika Nuklir">
+                <h2 class="overlay-text">Fisika Nuklir</h2>
+                </a>
+            </div>
+        </div>
+        <div class="content">
+            <h1 data-content="STARA">
+                STARA
+            </h1>
+            <div class="author">
+                <h2>AL GIBRAN</h2>
+                <p><b>Sign Language Translator</b></p>
+                <p>
+                    Physics Experiment
+                </p>
+            </div>
+            <div class="model"></div>
+        </div>
+    </div>
+    <script>
+        // Ambil elemen slider
+        const slider = document.querySelector('.slider');
+        
+        // Ambil semua gambar dalam slider
+        const items = document.querySelectorAll('.slider .item img');
+        
+        // Loop untuk menambahkan event listener ke setiap gambar
+        items.forEach(item => {
+            item.addEventListener('mouseover', () => {
+                console.log("Mouse over");
+                slider.classList.add('paused'); // Tambah kelas paused saat mouse masuk
+            });
+    
+            item.addEventListener('mouseout', () => {
+                console.log("Mouse out");
+                slider.classList.remove('paused'); // Hapus kelas paused saat mouse keluar
+            });
+        });
+    </script>
+     
+</body>
+</html>     
